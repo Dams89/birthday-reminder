@@ -1,12 +1,20 @@
 import './App.css';
-import './data';
+import data from './data';
 import React, { useState } from 'react';
 import List from './List';
 
-class App extends React.Component {
-  render() {
-    return <h2>Reminder project setup</h2>
+
+
+function App() {
+  const [people, setPeople] = useState(data);
+    return ( <main>
+      <section className='container'>
+        <h3>{people.length} birthdays today</h3>
+        <List people={people} />
+        <button onClick = {() => setPeople([])}>clear all</button>
+      </section>
+    </main>)
   }
-}
+
 
 export default App;
